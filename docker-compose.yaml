@@ -1,0 +1,12 @@
+version: '3'
+services:
+   ca:
+      image: smallstep/step-ca
+      ports:
+       - 9000:9000
+      environment:
+       - DOCKER_STEPCA_INIT_NAME=dalongrong
+       - DOCKER_STEPCA_INIT_DNS_NAMES=localhost,$(hostname -f)
+       - DOCKER_STEPCA_INIT_REMOTE_MANAGEMENT=true
+      volumes:
+        - ./step:/home/step
